@@ -112,12 +112,20 @@ class AppBlocBloc extends Bloc<AppBlocEvent, AppBlocState> {
         final image = event.image;
         final email = event.email;
         final password = event.password;
+        final phone = event.phone;
         final userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
         final db = FirebaseFirestore.instance
             .collection('user')
             .doc(userCredential.user!.uid);
-        db.set({'email': email, 'password': password, 'image': image});
+        db.set(
+          {
+            'email': email,
+            'password': password,
+            'image': image,
+            'phoneNo': phone,
+          },
+        );
         emit(
           AppBlocStateLoggedIn(
             isLoading: false,
@@ -129,44 +137,5 @@ class AppBlocBloc extends Bloc<AppBlocEvent, AppBlocState> {
             isLoading: false, authError: AuthError.from(e)));
       }
     });
-    // on<AppBlocEventGetDataFromFirebase>(
-    //   (event, emit) async {
-    //     try {
-    //       print('Heerree WEEE GOOOOO!!!');
-    //       final db = FirebaseFirestore.instance.collection('items');
-    //       final user = FirebaseAuth.instance.currentUser;
-    //       emit(
-    //         AppBlocStateLoggedIn(isLoading: true, user: user!),
-    //       );
-    //       late Map<String, dynamic> getData;
-    //       await db.get().then((value) {
-    //         for (var doc in value.docs) {
-    //           getData = doc.data();
-    //         }
-    //       });
-    //       var items = Items.fromJson(getData);
-    //       Items(
-    //           name: items.name,
-    //           description: items.description,
-    //           price: items.price,
-    //           image: items.image);
-
-    //       emit(
-    //         AppBlocStateGetDataFromFirebase(
-    //           isLoading: true,
-    //         ),
-    //       );
-    //     } catch (e) {
-    //       print(e);
-    //     }
-    //   },
-    // );
-    // on<AppBlocEventGoToDetailScreen>((event, emit) {
-    //   final ref = FirebaseFirestore.instance.collection('items').doc().id;
-    //   emit(AppBlocStateGoToDetailScreen(
-    //     isLoading: true,
-    //     ref: ref,
-    //   ));
-    // });
   }
 }

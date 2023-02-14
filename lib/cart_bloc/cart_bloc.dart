@@ -8,6 +8,10 @@ import 'package:onlineshop/shopping_repository.dart';
 part 'cart_event.dart';
 part 'cart_state.dart';
 
+///aw Bloc a lo order u krdni item akan lanaw Cart y yan sabatay ka yakamjar loading a
+///dwaye dabita Loaded yani datayakan hatyna naw Cart y
+///dwatr Add u Remove y tedaya
+
 class CartBloc extends Bloc<CartEvent, CartState> {
   final ShoppingRepository shoppingRepository;
   CartBloc(this.shoppingRepository) : super(CartLoading()) {

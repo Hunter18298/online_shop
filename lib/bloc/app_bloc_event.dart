@@ -1,5 +1,6 @@
 part of 'app_bloc_bloc.dart';
 
+///lera eventakan dyari dakayn (Event dyari dakre lo aw eshanay ka pewista bkre w lagal App bloc y bastraytawa ) eventakan wak login logout peshandani data
 @immutable
 abstract class AppBlocEvent {
   const AppBlocEvent();
@@ -55,8 +56,10 @@ class AppBlocEventRegister implements AppBlocEvent {
   final String image;
   final String email;
   final String password;
+  final String phone;
 
   const AppBlocEventRegister({
+    required this.phone,
     required this.image,
     required this.email,
     required this.password,

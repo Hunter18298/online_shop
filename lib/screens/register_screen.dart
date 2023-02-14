@@ -20,6 +20,8 @@ class RegisterScreen extends HookWidget {
         useTextEditingController(text: 'paywand@gmail.com'.ifDebugging);
     final passwordController =
         useTextEditingController(text: 'paywand&*'.ifDebugging);
+    final phoneNoController =
+        useTextEditingController(text: "07508174952".ifDebugging);
     return Scaffold(
       body: Form(
         key: _key,
@@ -85,17 +87,33 @@ class RegisterScreen extends HookWidget {
                 return '';
               },
             ),
+            TextFormField(
+              controller: phoneNoController,
+              decoration: const InputDecoration(
+                labelText: 'put your phone number',
+                contentPadding: EdgeInsets.all(8),
+              ),
+              keyboardType: TextInputType.emailAddress,
+              keyboardAppearance: Brightness.dark,
+              validator: (value) {
+                if (value == null) {
+                  return 'Please Enter Your phone number';
+                }
+                return '';
+              },
+            ),
             ElevatedButton(
               onPressed: () async {
                 final email = emailController.text;
                 final password = passwordController.text;
                 final image = imageController.text;
+                final phone = phoneNoController.text;
                 context.read<AppBlocBloc>().add(
                       AppBlocEventRegister(
-                        image: image,
-                        email: email,
-                        password: password,
-                      ),
+                          image: image,
+                          email: email,
+                          password: password,
+                          phone: phone),
                     );
               },
               child: Text(

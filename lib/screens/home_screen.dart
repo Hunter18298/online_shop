@@ -13,11 +13,6 @@ class HomeScreen extends StatelessWidget {
   final List<Items> item = [];
   @override
   Widget build(BuildContext context) {
-    // final List<Items>? getData = context.read<AppBlocBloc>().state.items;
-    // print(getData!.toList().length.toString() + "Herreee WEE GOOO!!");
-
-    // print(itemsRef.get());
-
     Size size = MediaQuery.of(context).size;
 
     final screenWidth = size.width;

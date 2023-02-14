@@ -1,5 +1,8 @@
 part of 'app_bloc_bloc.dart';
 
+///state loway bakar de lanaw eventakan esh bkan w agayan la gorankari data y by yan
+///hinan u brdni data y
+
 @immutable
 abstract class AppBlocState {
   final Items? items;

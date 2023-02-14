@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:onlineshop/model/items.dart';
 
+//zanini datakan lanaw shop aka
 const _delay = Duration(milliseconds: 800);
 
 const _catalog = [

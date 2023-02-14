@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 
+//agadary application akay dabi ka ch datayak dagwazretawa
 class SimpleBlocObserver extends BlocObserver {
   const SimpleBlocObserver();
 
