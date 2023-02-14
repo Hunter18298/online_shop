@@ -1,5 +1,6 @@
 part of 'cart_bloc.dart';
 
+///aw file a peman dale ka state y cart aka chya datay tedaya yan na, yanish error y haya!?
 abstract class CartState extends Equatable {
   const CartState();
 

@@ -1,5 +1,7 @@
 part of 'cart_bloc.dart';
 
+/// aw file a lo bakar henani event lo cart ya u (props) bakardet
+/// lo barawrdkrdni datayakan agar datayakan rast bn yan na
 @immutable
 abstract class CartEvent extends Equatable {
   const CartEvent();

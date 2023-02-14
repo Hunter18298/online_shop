@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' show BuildContext;
 
 import 'package:onlineshop/dialogs/generic_dialog.dart';
 
+//bakarhenani showGenericDialog lo drustkrdni dialog ak lo logout y
 Future<bool> showLogOutDialog(BuildContext context) {
   return showGenericDialog<bool>(
     context: context,
@@ -11,6 +12,7 @@ Future<bool> showLogOutDialog(BuildContext context) {
       'Cancel': false,
       'Log out': true,
     },
+    //.then() bakarde agar darey yan pshty dialog akay dagira
   ).then(
     (value) => value ?? false,
   );

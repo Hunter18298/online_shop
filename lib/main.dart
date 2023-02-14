@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
             colorScheme:
                 const ColorScheme.light().copyWith(primary: Colors.white)),
         home: BlocConsumer<AppBlocBloc, AppBlocState>(
+          ///lera ba pey state akan screen akan dagordret
           builder: (context, appState) {
             if (appState is AppBlocStateLoggedOut) {
               return LoginScreen();
@@ -94,6 +95,7 @@ class MyApp extends StatelessWidget {
             }
           },
         ),
+        //routes lo arastakrdni screen akani naw application aka bakar det
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
           OrderScreen.routeName: (context) => OrderScreen(),

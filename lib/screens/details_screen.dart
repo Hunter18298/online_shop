@@ -13,7 +13,9 @@ class DetailsScreen extends StatelessWidget {
   Items? items;
   @override
   Widget build(BuildContext context) {
+    //mediaQuery lo zanini drezh w panw shashaka ka dwatr bakar de la width u height
     Size size = MediaQuery.of(context).size;
+    //modalRoute lo hinanaway data ba pey Id document y la firebase y
     String data = ModalRoute.of(context)!.settings.arguments as String;
     // final test = FirebaseFirestore.instance.collection('user').doc(data);
 
@@ -40,12 +42,15 @@ class DetailsScreen extends StatelessWidget {
         title: const Text('Description'),
         centerTitle: true,
       ),
+      //StreamBuilder lo hinanaway data la Firebase u agadar bet agar data bgoret
       body: StreamBuilder(
+          //stream loway bzantret data la ch collection ek det
           stream: FirebaseFirestore.instance
               .collection('items')
               .doc(data)
               .snapshots(),
           builder: (context, snapshot) {
+            //bzanret ka data yan internet tawawa yan salamata pesh away data peshandret
             final snapshotStatus = snapshot.connectionState;
             switch (snapshotStatus) {
               case ConnectionState.none:
@@ -60,17 +65,15 @@ class DetailsScreen extends StatelessWidget {
                 if (!snapshot.hasData) {
                   return const Text('Check Your connection');
                 }
+                //henani data la naw documentakan
                 final snap = snapshot.data!.data()!;
-                // var da = snapshot.data!.data()!.entries.map((e) {
-                //   for (var i in e.value) {
-                //     return i['name'];
-                //   }
-                // });
+
                 return ListView(
                   primary: true,
                   padding: EdgeInsets.all(8.0),
                   children: [
                     Image.network(
+                      //henani data dwatr dyari krdni field (lera field y image a)
                       snap['image'],
                       fit: BoxFit.cover,
                       height: screenHeight * 0.3,
@@ -117,12 +120,13 @@ class DetailsScreen extends StatelessWidget {
                           backgroundColor: Colors.yellow.shade700,
                         ),
                         onPressed: () {
+                          //zyadkrdni data lo naw class y Items
                           items = Items(
                               name: snap['name'],
                               description: snap['description'],
                               image: snap['image'],
                               price: snap['price']);
-
+                          //bakarhenani event y add lo zyadkrdni data waku list lonaw cart
                           context.read<CartBloc>().add(CartItemsAdded(items!));
                         },
                         child: Text(

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuthException;
 import 'package:flutter/foundation.dart' show immutable;
 
+//aw file bas lo peshandani loggin u logout error ya autErrorMap loway danraya lagal
+//errorakani firebase y yak bgrtawa
 const Map<String, AuthError> authErrorMapping = {
   'user-not-found': AuthErrorUserNotFound(),
   'weak-password': AuthErrorWeakPassword(),
@@ -26,6 +28,7 @@ abstract class AuthError {
       const AuthErrorUnknown();
 }
 
+//agar error aka nanasraw bua nazanra chya la firebase y
 @immutable
 class AuthErrorUnknown extends AuthError {
   const AuthErrorUnknown()

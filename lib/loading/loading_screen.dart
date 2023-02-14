@@ -7,7 +7,7 @@ class LoadingScreen {
   LoadingScreen._sharedInstance();
   static late final LoadingScreen _shared = LoadingScreen._sharedInstance();
   factory LoadingScreen.instance() => _shared;
-
+//lo peshandani loading screen ya ka showOverlay bakar hatya ka katak login yan register dakay diar dabi
   LoadingScreenController? controller;
 
   void show({

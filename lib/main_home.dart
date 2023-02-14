@@ -34,6 +34,8 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+//lo hiani index y pagakan lanaw aw list ay sare ka drustman krdia
+//pesh u pash y pe bka loway bgordre
   void _getCurrentPage(int selectedindex) {
     setState(() {
       _currentIndex = selectedindex;
