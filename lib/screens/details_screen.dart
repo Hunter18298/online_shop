@@ -122,6 +122,7 @@ class DetailsScreen extends StatelessWidget {
                         onPressed: () {
                           //zyadkrdni data lo naw class y Items
                           items = Items(
+                              category: snap['category'],
                               name: snap['name'],
                               description: snap['description'],
                               image: snap['image'],

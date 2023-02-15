@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:onlineshop/auth/auth_error.dart';
 import 'package:onlineshop/model/items.dart';
 
@@ -65,11 +66,12 @@ class AppBlocBloc extends Bloc<AppBlocEvent, AppBlocState> {
         });
         var items = Items.fromJson(getData);
         Items(
-            name: items.name,
-            description: items.description,
-            price: items.price,
-            image: items.image);
-        ;
+          name: items.name,
+          description: items.description,
+          price: items.price,
+          image: items.image,
+          category: items.category,
+        );
       } on FirebaseAuthException catch (e) {
         emit(AppBlocStateLoggedOut(
           isLoading: false,
@@ -113,6 +115,7 @@ class AppBlocBloc extends Bloc<AppBlocEvent, AppBlocState> {
         final email = event.email;
         final password = event.password;
         final phone = event.phone;
+        final role = event.role;
         final userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
         final db = FirebaseFirestore.instance
@@ -124,6 +127,7 @@ class AppBlocBloc extends Bloc<AppBlocEvent, AppBlocState> {
             'password': password,
             'image': image,
             'phoneNo': phone,
+            'role': role,
           },
         );
         emit(

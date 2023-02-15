@@ -53,12 +53,14 @@ class AppBlocEventGoToLogin implements AppBlocEvent {
 
 @immutable
 class AppBlocEventRegister implements AppBlocEvent {
+  final String role;
   final String image;
   final String email;
   final String password;
   final String phone;
 
   const AppBlocEventRegister({
+    this.role = 'user',
     required this.phone,
     required this.image,
     required this.email,
