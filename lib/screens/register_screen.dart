@@ -110,10 +110,11 @@ class RegisterScreen extends HookWidget {
                 final phone = phoneNoController.text;
                 context.read<AppBlocBloc>().add(
                       AppBlocEventRegister(
-                          image: image,
-                          email: email,
-                          password: password,
-                          phone: phone),
+                        image: image,
+                        email: email,
+                        password: password,
+                        phone: phone,
+                      ),
                     );
               },
               child: Text(

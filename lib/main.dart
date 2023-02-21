@@ -18,6 +18,7 @@ import 'package:onlineshop/shopping_observer.dart';
 import 'package:onlineshop/shopping_repository.dart';
 
 import 'firebase_options.dart';
+import 'screens/products.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -101,6 +102,7 @@ class MyApp extends StatelessWidget {
           OrderScreen.routeName: (context) => OrderScreen(),
           ProfileScreen.routeName: (context) => const ProfileScreen(),
           DetailsScreen.routeName: (context) => DetailsScreen(),
+          ProductsByCategory.routeName: (context) => const ProductsByCategory(),
         },
       ),
     );
