@@ -27,16 +27,25 @@ class DetailsScreen extends StatelessWidget {
       appBar: AppBar(
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color(0xFF0081C9),
-                Color(0xFF5BC0F8),
-                Color(0xFF86E5FF),
-              ]),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(45),
-                bottomRight: Radius.circular(45),
-              )),
+            gradient: LinearGradient(colors: [
+              Color(0xFF0081C9),
+              Color(0xFF5BC0F8),
+              Color(0xFF86E5FF),
+            ]),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(45),
+              bottomRight: Radius.circular(45),
+            ),
+          ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
+        ],
         toolbarHeight: screenHeight * 0.07,
         elevation: 0,
         title: const Text('Description'),
