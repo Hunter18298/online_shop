@@ -8,6 +8,7 @@ import 'package:onlineshop/cart_bloc/cart_bloc.dart';
 import 'package:onlineshop/dialogs/show_auth_error.dart';
 import 'package:onlineshop/loading/loading_screen.dart';
 import 'package:onlineshop/main_home.dart';
+import 'package:onlineshop/screens/about_us.dart';
 import 'package:onlineshop/screens/details_screen.dart';
 import 'package:onlineshop/screens/home_screen.dart';
 import 'package:onlineshop/screens/login_screen.dart';
@@ -103,6 +104,7 @@ class MyApp extends StatelessWidget {
           ProfileScreen.routeName: (context) => const ProfileScreen(),
           DetailsScreen.routeName: (context) => DetailsScreen(),
           ProductsByCategory.routeName: (context) => const ProductsByCategory(),
+          AboutUs.routeName: (context) => const AboutUs(),
         },
       ),
     );

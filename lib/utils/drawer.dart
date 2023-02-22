@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:onlineshop/bloc/app_bloc_bloc.dart';
 import 'package:onlineshop/dialogs/logout_dialog.dart';
 
+import '../screens/about_us.dart';
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
 
@@ -81,7 +83,16 @@ class DrawerWidget extends StatelessWidget {
                         }
                       },
                       child: Text(
-                        'Log out',
+                        'log out',
+                        style: GoogleFonts.montserrat(color: Colors.black),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, AboutUs.routeName);
+                      },
+                      child: Text(
+                        'About us',
                         style: GoogleFonts.montserrat(color: Colors.black),
                       ),
                     )
