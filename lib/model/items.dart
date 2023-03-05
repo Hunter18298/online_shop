@@ -9,8 +9,10 @@ class Items {
   final String description;
   final int price;
   final bool? isFavourite;
+  final String category;
 
   const Items({
+    required this.category,
     required this.name,
     required this.description,
     required this.price,
@@ -20,6 +22,7 @@ class Items {
   //loway datay la firebase y xaznkayna naw class y Items y
   factory Items.fromJson(Map<String, dynamic> json) {
     return Items(
+      category: json['category'],
       name: json['name'],
       image: json['image'],
       description: json['description'],
@@ -29,6 +32,7 @@ class Items {
   }
   //data wak u map daxil bkre u ba pechawanawa
   Map<String, dynamic> toMap() => {
+        'category': category,
         'name': name,
         'image': image,
         'description': description,
@@ -38,6 +42,7 @@ class Items {
 //data waku Json daxil bkre w ba pechawanawa
   Map<String, Object?> toJson() {
     return {
+      'category': category,
       'name': name,
       'image': image,
       'description': description,
@@ -47,5 +52,5 @@ class Items {
   }
 
   @override
-  List<Object> get props => [name, image, description, price];
+  List<Object> get props => [name, image, description, price, category];
 }

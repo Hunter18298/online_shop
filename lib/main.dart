@@ -8,6 +8,7 @@ import 'package:onlineshop/cart_bloc/cart_bloc.dart';
 import 'package:onlineshop/dialogs/show_auth_error.dart';
 import 'package:onlineshop/loading/loading_screen.dart';
 import 'package:onlineshop/main_home.dart';
+import 'package:onlineshop/screens/about_us.dart';
 import 'package:onlineshop/screens/details_screen.dart';
 import 'package:onlineshop/screens/home_screen.dart';
 import 'package:onlineshop/screens/login_screen.dart';
@@ -16,8 +17,10 @@ import 'package:onlineshop/screens/profile_screen.dart';
 import 'package:onlineshop/screens/register_screen.dart';
 import 'package:onlineshop/shopping_observer.dart';
 import 'package:onlineshop/shopping_repository.dart';
+import 'package:onlineshop/splash_screen.dart';
 
 import 'firebase_options.dart';
+import 'screens/products.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -101,6 +104,10 @@ class MyApp extends StatelessWidget {
           OrderScreen.routeName: (context) => OrderScreen(),
           ProfileScreen.routeName: (context) => const ProfileScreen(),
           DetailsScreen.routeName: (context) => DetailsScreen(),
+          ProductsByCategory.routeName: (context) => const ProductsByCategory(),
+          AboutUs.routeName: (context) => const AboutUs(),
+          LoginScreen.routeName: (context) => LoginScreen(),
+          SplashScrenn.routeName: (context) => const SplashScrenn(),
         },
       ),
     );

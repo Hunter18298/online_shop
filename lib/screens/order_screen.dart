@@ -123,10 +123,6 @@ class OrderScreen extends StatelessWidget {
                             style: GoogleFonts.montserrat(
                                 color: Colors.blueAccent.shade700),
                           ),
-                          trailing: Text(
-                            "x2",
-                            style: GoogleFonts.montserrat(color: Colors.black),
-                          ),
                         );
                       }),
                 )

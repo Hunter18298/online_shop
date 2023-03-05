@@ -2,11 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:onlineshop/screens/products.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   static const routeName = '/profile';
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  String categoryName = '';
   @override
   Widget build(BuildContext context) {
     final userCredential = FirebaseAuth.instance.currentUser!.uid;
@@ -14,74 +21,85 @@ class ProfileScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     final screenWidth = size.width;
     final screenHeight = size.height;
-    return StreamBuilder<DocumentSnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection('user')
-            .doc(userCredential)
-            .snapshots(),
-        builder: (context, snapshot) {
-          final snapStatus = snapshot.connectionState;
-          switch (snapStatus) {
-            case ConnectionState.none:
-
-            case ConnectionState.waiting:
-
-            case ConnectionState.done:
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: Colors.black,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GestureDetector(
+          onTap: () async {
+            setState(() {
+              categoryName = 'men';
+            });
+            await Navigator.pushNamed(
+              context,
+              ProductsByCategory.routeName,
+              arguments: categoryName,
+            );
+          },
+          child: Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.03,
+              vertical: screenHeight * 0.005,
+            ),
+            width: screenWidth,
+            height: screenHeight * 0.2,
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://img.freepik.com/free-photo/image-confident-caucasian-man-smiling-pleased-holding-hands-crossed-chest-looking-satisfie_1258-145702.jpg?w=1800&t=st=1677019033~exp=1677019633~hmac=5aa8a374d5e79f42917fda1d61db5388e69c3a96e38e5881faaf23fa9279cfaa'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Text(
+              'Men',
+              style: GoogleFonts.montserrat(
+                fontSize: 24,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () async {
+            setState(() {
+              categoryName = 'women';
+            });
+            await Navigator.pushNamed(
+              context,
+              ProductsByCategory.routeName,
+              arguments: categoryName,
+            );
+          },
+          child: Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.03,
+              vertical: screenHeight * 0.005,
+            ),
+            width: screenWidth,
+            height: screenHeight * 0.2,
+            decoration: const BoxDecoration(
+              color: Colors.transparent,
+              image: DecorationImage(
+                image: NetworkImage(
+                  'https://img.freepik.com/free-photo/young-beautiful-brunette-businesswoman-smiling-pointing-finger-side_176420-9925.jpg?w=1800&t=st=1677022761~exp=1677023361~hmac=26834e0bda8c2a60b3732bd42ef13f537764900546eea19555a27f8109b86a66',
                 ),
-              );
-            case ConnectionState.active:
-              if (!snapshot.hasData) {
-                return const Text('Check your connection');
-              }
-              final snap = snapshot.data!.data()! as Map<String, dynamic>;
-              return ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                primary: true,
-                children: [
-                  SizedBox(
-                    height: screenHeight * 0.2,
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: screenWidth * 0.3),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          snap['image'],
-                        ),
-                        backgroundColor: Colors.blueGrey,
-                        radius: 50.0,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.03,
-                  ),
-                  Text(
-                    'Account Details',
-                    style: GoogleFonts.montserrat(
-                        color: Colors.black, fontSize: 20),
-                  ),
-                  Divider(
-                    color: Colors.black.withAlpha(150),
-                  ),
-                  Text(
-                    "Email: ${snap['email']} ",
-                    style: GoogleFonts.montserrat(
-                        color: Colors.black, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.03,
-                  ),
-                  Text(
-                    "Password: ${snap['password']} ",
-                    style: GoogleFonts.montserrat(
-                        color: Colors.black, fontSize: 18),
-                  ),
-                ],
-              );
-          }
-        });
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Text(
+              'Women',
+              style: GoogleFonts.montserrat(
+                fontSize: 24,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

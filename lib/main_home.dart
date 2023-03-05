@@ -119,9 +119,9 @@ class _HomePageState extends State<HomePage> {
                   label: "Cart"),
               BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.face,
+                    Icons.category_sharp,
                   ),
-                  label: "Profile"),
+                  label: "Categories"),
             ],
           ),
         ),

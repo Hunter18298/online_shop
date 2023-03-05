@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:onlineshop/auth/auth_error.dart';
 import 'package:onlineshop/bloc/app_bloc_bloc.dart';
 import 'package:onlineshop/dialogs/show_auth_error.dart';
@@ -43,8 +44,9 @@ class HomeScreen extends StatelessWidget {
                 primary: true,
                 children: [
                   SizedBox(
-                    height: screenHeight * 0.3,
+                    height: screenHeight * 0.15,
                     child: Container(
+                      alignment: Alignment.center,
                       margin: const EdgeInsets.symmetric(vertical: 20),
                       decoration: BoxDecoration(
                         color: const ColorScheme.light().primary,
@@ -55,34 +57,15 @@ class HomeScreen extends StatelessWidget {
                               "https://img.freepik.com/free-vector/flat-winter-clothes-essentials-collection_23-2149139964.jpg?w=1800&t=st=1675266996~exp=1675267596~hmac=4735b9f6d40c71523f0fcc1521b8d94ba6eef294abb04c4ad2327726d3ce7a23"),
                         ),
                       ),
-                      child: Stack(children: [
-                        Positioned(
-                          left: 10,
-                          top: 20,
-                          child: Container(
-                            width: 50,
-                            height: 50,
-                            color: Colors.amber,
-                            child: const Icon(
-                              Icons.production_quantity_limits,
-                              size: 30,
-                            ),
-                          ),
+                      child: Text(
+                        'Winter Offer -20% off',
+                        style: GoogleFonts.montserrat(
+                          backgroundColor: Colors.amber,
+                          fontSize: 24,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
-                        Positioned(
-                          right: 10,
-                          top: 20,
-                          child: Container(
-                            width: 50,
-                            height: 50,
-                            color: Colors.amber,
-                            child: const Icon(
-                              Icons.food_bank,
-                              size: 30,
-                            ),
-                          ),
-                        ),
-                      ]),
+                      ),
                     ),
                   ),
                   Text(
@@ -94,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(2),
                     child: SizedBox(
                       width: screenWidth * 0.1,
-                      height: screenHeight * 0.008,
+                      height: screenHeight * 0.002,
                     ),
                   ),
                   SizedBox(
@@ -102,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SingleChildScrollView(
                     child: SizedBox(
-                      height: screenHeight * 0.40,
+                      height: screenHeight * 0.55,
                       child: GridView.builder(
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
