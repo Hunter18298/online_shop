@@ -17,6 +17,7 @@ import 'package:onlineshop/screens/profile_screen.dart';
 import 'package:onlineshop/screens/register_screen.dart';
 import 'package:onlineshop/shopping_observer.dart';
 import 'package:onlineshop/shopping_repository.dart';
+import 'package:onlineshop/splash_screen.dart';
 
 import 'firebase_options.dart';
 import 'screens/products.dart';
@@ -105,6 +106,8 @@ class MyApp extends StatelessWidget {
           DetailsScreen.routeName: (context) => DetailsScreen(),
           ProductsByCategory.routeName: (context) => const ProductsByCategory(),
           AboutUs.routeName: (context) => const AboutUs(),
+          LoginScreen.routeName: (context) => LoginScreen(),
+          SplashScrenn.routeName: (context) => const SplashScrenn(),
         },
       ),
     );
